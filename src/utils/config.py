@@ -99,19 +99,21 @@ MIN_ACCURACY_DROP = 0.15  # minimum delta to validate corruption difficulty
 
 # ─── Source Corpora ──────────────────────────────────────────────────
 SOURCE_CORPORA = {
+    # NOTE: Use 'wikimedia/wikipedia', NOT the old 'wikipedia'.
+    # The legacy 'wikipedia' dataset relied on a .py script which is no longer supported.
     "wikipedia_en": {
-        "hf_id": "wikipedia",
-        "config": "20220301.en",
+        "hf_id": "wikimedia/wikipedia",
+        "config": "20231101.en",
         "language": "en",
     },
     "wikipedia_hi": {
-        "hf_id": "wikipedia",
-        "config": "20220301.hi",
+        "hf_id": "wikimedia/wikipedia",
+        "config": "20231101.hi",
         "language": "hi",
     },
     "wikipedia_ta": {
-        "hf_id": "wikipedia",
-        "config": "20220301.ta",
+        "hf_id": "wikimedia/wikipedia",
+        "config": "20231101.ta",
         "language": "ta",
     },
     "gutenberg": {
