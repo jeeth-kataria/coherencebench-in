@@ -1,0 +1,57 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+*.egg-info/
+dist/
+build/
+*.egg
+
+# Virtual environments
+venv/
+env/
+.venv/
+
+# Jupyter
+.ipynb_checkpoints/
+*.ipynb_checkpoints
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Data (large files — download separately)
+data/raw/*.json
+data/raw/*.jsonl
+data/raw/*.parquet
+data/raw/*.csv
+data/raw/*.zip
+data/raw/*.tar.gz
+
+# Results (regenerable)
+results/*.json
+results/*.csv
+results/*.png
+
+# API keys
+.env
+*.env
+
+# Model weights (never commit)
+*.bin
+*.safetensors
+*.pt
+*.pth
+
+# Logs
+*.log
+logs/
+wandb/
