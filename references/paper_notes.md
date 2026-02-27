@@ -145,41 +145,43 @@ LongBench v2 is the current state-of-the-art comprehensive long-context benchmar
 
 ## Paper 4: TLDM — Too Long, Didn't Model
 
-**Authors:** Hamilton et al. (2025)  
-**Venue:** arXiv preprint (May 2025)  
-**Read on:** [TO READ — search arXiv for "Too Long Didn't Model 2025" or "TLDM Hamilton 2025"]  
+**Authors:** Hamilton, S., Hicke, R. M. M., Wilkens, M., & Mimno, D. (Cornell University)  
+**Venue:** arXiv:2505.14925 (May 2025)  
+**arXiv:** https://arxiv.org/abs/2505.14925  
 **Priority:** #4 — **CLOSEST competitor; must understand deeply for Related Work §**  
 
-### Summary (from prior knowledge — fill after reading PDF)
+### Summary
 
-TLDM evaluates LLMs on comprehension of full-length novels. The authors curate a dataset of questions from published novels spanning full books (100K+ tokens), requiring models to track character arcs, plot events, and relationships across the entire text. Key findings: models lose track of character attributes (name, occupation, relationships) as the number of intervening chapters increases; performance on questions requiring cross-chapter integration is materially lower than performance on locally answerable questions.
+TLDM evaluates LLMs on comprehension of full-length novels using three narrative understanding tasks: chapter summarization, storyworld description (tracking character locations), and narrative time estimation. The authors find models fail to extract and report plot-level information from books spanning 100K+ tokens. The storyworld task is the closest conceptual overlap with our Entity Consistency dimension, but it measures *extraction accuracy* rather than *incoherence detection*.
 
-### Why TLDM Is Our Closest Prior Work:
-- Tests discourse-level properties (character tracking, plot consistency) — closest to coherence
-- Uses naturally long documents (full novels) — similar domain to our Wikipedia/Gutenberg sources
-- Reveals LLM failures at tracking entity properties over long spans
+### Exact Quote (§3, Tasks — verified):
+> "We deploy three narrative understanding tasks that require processing large amounts of text: (1) Summarization: Summarize the narrative with one sentence per chapter. (2) Storyworld description: Return the last known physical location of every character in the narrative. (3) Narrative time: Estimate the narrative time passed in hours, days, months, or years."
+
+### Limitations Quote (useful for Related Work contrast):
+> "The first is the lack of true ground truth values. The expense and time needed to produce validated human ground truth for full novel-level annotations means that the TLDM benchmark compares novels only to their own short context performance."
+
+**Gap confirmed:** TLDM is a narrative *reporting* benchmark. It does not evaluate coherence violations, does not inject controlled incoherence into source texts, and provides no ground truth for whether a model correctly detects entity contradictions, temporal inconsistencies, or broken causal chains. CoherenceBench-IN's programmatic corruption methodology directly solves the ground-truth limitation TLDM itself acknowledges.
 
 ### Four Differentiators We Must Articulate Clearly in Related Work:
-1. **Task type**: TLDM = comprehension QA (can model retrieve the right answer?); CoherenceBench-IN = coherence evaluation (can model *detect* a structural violation?)
-2. **Corpus construction**: TLDM uses existing novels unmodified; CoherenceBench-IN uses *controlled injection* to create verifiable corruptions with known ground truth
-3. **Dimensional taxonomy**: TLDM doesn't break down findings by entity consistency, temporal, or causal — CoherenceBench-IN has a formal 3-dimension taxonomy
+1. **Task type**: TLDM = comprehension/reporting QA; CoherenceBench-IN = incoherence *detection* with binary ground truth
+2. **Corpus construction**: TLDM uses existing novels unmodified; CoherenceBench-IN uses *controlled injection* — ground truth is the corruption itself
+3. **Dimensional taxonomy**: TLDM has no entity/temporal/causal breakdown; CoherenceBench-IN has a formal 3-dimension taxonomy
 4. **Languages**: TLDM = English only; CoherenceBench-IN = English + Hindi + Tamil
 
-### Action Required:
-- [ ] Read TLDM PDF and fill in exact quote about character/plot tracking failure
-- [ ] Extract their accuracy numbers for cross-chapter vs. local questions (for Table 2 comparison)
-- [ ] Note exact dataset size and novel titles used
+### Action Items — ✅ COMPLETE
+- [x] Exact quote verified (§3, Tasks)
+- [x] Limitations quote extracted (useful for Related Work)
+- [ ] Extract accuracy numbers for cross-chapter vs. local questions (for Table 2 comparison, if available)
 
 ### BibTeX:
 ```bibtex
 @article{hamilton2025tldm,
-  title={Too Long; Didn't Model: Evaluating LLMs on Long-Context Novel Comprehension},
-  author={Hamilton, William L and others},
-  journal={arXiv preprint},
+  title={Too Long, Didn't Model: Decomposing LLM Long-Context Understanding With Novels},
+  author={Hamilton, Sil and Hicke, Rebecca M. M. and Wilkens, Matthew and Mimno, David},
+  journal={arXiv preprint arXiv:2505.14925},
   year={2025}
 }
 ```
-*(Verify full author list and arXiv ID from PDF)*
 
 ---
 
