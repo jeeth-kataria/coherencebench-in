@@ -1,0 +1,28 @@
+# CoherenceBench-IN — GPU server requirements
+# Install with: pip install -r scripts/requirements_gpu.txt
+# (torch must be installed separately — see setup_gpu.sh)
+
+# Core HF stack
+transformers>=4.45.0
+accelerate>=0.34.0
+bitsandbytes>=0.43.0        # 4-bit / 8-bit quantization on CUDA
+sentencepiece>=0.2.0
+protobuf>=4.25.0
+safetensors>=0.4.0
+huggingface_hub>=0.24.0
+
+# Tokenization
+tiktoken>=0.7.0
+
+# Data / evaluation
+pandas>=2.2.0
+numpy>=1.26.0
+tqdm>=4.66.0
+matplotlib>=3.8.0
+
+# API models (optional)
+openai>=1.30.0
+
+# NLP (optional, for corpus pipeline)
+spacy>=3.7.0
+datasets>=2.19.0
