@@ -46,7 +46,7 @@ We evaluate five open-weight LLMs (3B--14B parameters) under a zero-shot,
 binary-classification prompt protocol.
 Results reveal substantial model variation (57.5\%--84.1\% overall accuracy)
 and a pronounced difficulty gap on causal chain reasoning,
-where sub-7B models perform near chance despite substantially above-chance performance on temporal and entity dimensions.
+where sub-7B models perform at or near chance despite substantially above-chance performance on temporal and entity dimensions.
 We further show that within the Qwen2.5 family, scaling from 3B to 7B parameters
 yields a +15.8 percentage point overall gain,
 while the 7B-to-14B step provides diminishing returns (+1.2 pp),
@@ -129,7 +129,7 @@ nor do they control for corruption type or distance.
 \subsection{Consistency and Factual Coherence}
 FactScore~\cite{min2023} and TrueTeacher~\cite{gekhman2023} evaluate factual consistency
 of generated text against source documents.
-TLDM~\cite{kasner2024} introduces a discourse-level consistency taxonomy
+TLDM~\cite{hamilton2025tldm} introduces a discourse-level consistency taxonomy
 covering entity, temporal, and causal violations---
 the closest precursor to our work.
 However, TLDM targets generated-text evaluation rather than
@@ -141,7 +141,7 @@ To the best of our knowledge, CoherenceBench-IN is the first benchmark to jointl
 coherence dimension, corruption distance, and document length
 for LLM evaluation, enabling fine-grained decomposition of
 long-context comprehension failures.
-Unlike TLDM~\cite{kasner2024}, which evaluates generated text for surface-level factual errors, and SCROLLS~\cite{shaham2022}, which does not isolate coherence dimensions, CoherenceBench-IN targets LLM comprehension of long documents with controlled dimension- and distance-specific corruptions.
+Unlike TLDM~\cite{hamilton2025tldm}, which evaluates generated text for surface-level factual errors, and SCROLLS~\cite{shaham2022}, which does not isolate coherence dimensions, CoherenceBench-IN targets LLM comprehension of long documents with controlled dimension- and distance-specific corruptions.
 
 \section{Benchmark Construction}
 \subsection{Source Corpus}
@@ -238,7 +238,7 @@ Qwen2.5-14B & 72.3 & 90.5 & 88.5 & 84.1 \\
 
 \begin{figure}[t]
 \centering
-\includegraphics[width=\columnwidth]{../../results/paper_fig2_main_results.jpg}
+\includegraphics[width=\columnwidth]{fig2_main_results}
 \caption{Accuracy by model and coherence dimension. Dashed line = chance (50\%).}
 \label{fig:main_results}
 \end{figure}
@@ -261,7 +261,7 @@ that, within the Qwen2.5 family, emerges around 7B parameters.
 
 \begin{figure}[t]
 \centering
-\includegraphics[width=\columnwidth]{../../results/paper_fig4_error_analysis.jpg}
+\includegraphics[width=\columnwidth]{fig4_error_analysis}
 \caption{Error breakdown: FP = over-flagged INCONSISTENT; FN = missed inconsistencies.}
 \label{fig:errors}
 \end{figure}
@@ -286,7 +286,7 @@ consistent with the threshold hypothesis.
 
 \begin{figure}[t]
 \centering
-\includegraphics[width=\columnwidth]{../../results/paper_fig3_context_length.jpg}
+\includegraphics[width=\columnwidth]{fig3_context_length}
 \caption{Accuracy vs.\ context length. Dashed line = chance (50\%).}
 \label{fig:ctx_length}
 \end{figure}
@@ -302,6 +302,10 @@ likely because more entities are introduced over longer spans,
 increasing the difficulty of tracking the corrupted entity.
 
 \subsection{Distance Effects}
+
+Table~\ref{tab:distance_results} reports accuracy on incoherent instances only;
+the systematic \textsc{inconsistent} bias of Llama-3.2-3B inflates these values
+while depressing its overall accuracy on the balanced evaluation set (Table~\ref{tab:main_results}).
 
 \begin{table}[t]
 \centering
