@@ -86,7 +86,8 @@ derived from Wikipedia articles across three coherence dimensions
 with document lengths ranging from 4K to 28K tokens.
 Our evaluation of five open-weight LLMs reveals that
 causal chain coherence is a sharp capability boundary:
-models below $\sim$7B parameters perform near chance on causal instances
+both 3B models and Mistral-7B perform near chance on causal instances,
+while Qwen2.5 models at 7B and above succeed substantially,
 regardless of their temporal or entity coherence scores.
 
 \paragraph{Contributions.}
@@ -369,9 +370,6 @@ capabilities transfer across linguistic families,
 and will explore chain-of-thought prompting strategies that may
 help smaller models overcome the causal reasoning barrier.
 
-\bibliographystyle{IEEEtran}
-\bibliography{references}
-
 \section*{Acknowledgements}
 The authors thank the Department of Artificial Intelligence and Data Science,
 Ramaiah Institute of Technology, Bangalore, for providing computational resources
@@ -385,5 +383,8 @@ in a read-only inference setting. No human annotators were employed.
 The benchmark is intended to support rigorous evaluation of LLMs;
 misuse for adversarial document manipulation is a potential concern that
 future work should address.
+
+\bibliographystyle{IEEEtran}
+\bibliography{references}
 
 \end{document}
